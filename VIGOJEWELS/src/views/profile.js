@@ -44,12 +44,20 @@ export default function profilePage() {
 
   render(profileTemplate(orders), mainEl);
 }
+function logout() {
+  localStorage.removeItem("authToken");
+  window.location.href = "/login";
+}
 
 function profileTemplate(orders) {
   return html`
     <section class="profile">
       <div class="container">
-        <h2 class="section-title">Поръчки</h2>
+        <div class="profile-head">
+          <button class="btn-logout" @click=${logout}>Изход</button>
+        </div>
+
+        <h3 class="section-subtitle">Поръчки</h3>
 
         ${orders.length === 0
           ? html`

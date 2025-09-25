@@ -78,7 +78,11 @@ async function register(email, password) {
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password, returnSecureToken: true }),
+    body: JSON.stringify({
+      email,
+      password,
+      returnSecureToken: true,
+    }),
   });
   const data = await res.json();
 
