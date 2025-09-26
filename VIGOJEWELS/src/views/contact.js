@@ -42,29 +42,6 @@ function contactTemplate() {
             <span class="contact__chev" aria-hidden="true">›</span>
           </a>
 
-          <!-- Book an appointment -->
-          <a
-            class="contact__row"
-            href="/appointment"
-            aria-label="Запазете час за консултация"
-          >
-            <span class="contact__row-left">
-              <span class="contact__icon" aria-hidden="true">
-                <!-- calendar -->
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2Zm12 8H5v10h14V10Z"
-                  />
-                </svg>
-              </span>
-              <div class="contact__row-text">
-                <strong>Запази час</strong>
-                <span class="contact__sub">Онлайн или в магазина</span>
-              </div>
-            </span>
-            <span class="contact__chev" aria-hidden="true">›</span>
-          </a>
-
           <!-- Text us -->
           <a
             class="contact__row"
@@ -96,7 +73,7 @@ function contactTemplate() {
       <div class="contact__right">
         <img
           class="contact__image"
-          src="/images/contact-hero.jpg"
+          src="/images/Logo.png"
           alt="Бижута на дисплей"
           loading="lazy"
         />
