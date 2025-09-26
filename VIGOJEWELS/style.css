@@ -689,3 +689,119 @@ button,
   justify-content: space-between;
   margin-bottom: 24px;
 }
+:root {
+  --bg: #0f1013;
+  --panel: #faf8f6;
+  --ink: #222;
+  --muted: #5e5e5e;
+  --brand: #b76e79; /* rose-gold */
+  --border: #e8e3df;
+}
+
+.contact {
+  background: var(--panel);
+  color: var(--ink);
+  padding: clamp(28px, 5vw, 56px) 20px;
+}
+
+.contact__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(24px, 5vw, 48px);
+  align-items: start;
+}
+
+.contact__title {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.contact__lead {
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 0 22px;
+}
+
+.contact__list {
+  display: grid;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.contact__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact__row:hover .contact__chev {
+  transform: translateX(4px);
+}
+
+.contact__row-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact__icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+.contact__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--brand);
+}
+
+.contact__row-text strong {
+  display: block;
+  font-weight: 700;
+}
+.contact__sub {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.contact__chev {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--muted);
+  transition: transform 0.18s ease;
+}
+
+.contact__right {
+  width: 100%;
+}
+.contact__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background: #eee;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .contact__container {
+    grid-template-columns: 1fr;
+  }
+  .contact__right {
+    order: -1;
+  }
+}
