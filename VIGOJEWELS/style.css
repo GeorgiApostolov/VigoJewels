@@ -481,120 +481,60 @@ button,
 .category-card:hover img {
   transform: scale(1.05);
 }
-.auth {
-  :root {
-    --bg: #0f1013;
-    --panel: #111418;
-    --ink: #eaeaea;
-    --muted: #a5a5a5;
-    --accent: #b76e79;
-    --border: #22262c;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font: 500 16px/1.45 Inter, system-ui, Segoe UI, Roboto, Arial;
-  }
-
-  .auth {
-    min-height: calc(100dvh - 0px);
-    display: grid;
-    place-items: center;
-    padding: 24px;
-  }
-  .card {
-    width: min(420px, 92vw);
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-  }
-
-  .form {
-    display: grid;
-    gap: 14px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .field {
-    display: grid;
-    gap: 6px;
-  }
-  label {
-    font-size: 13px;
-    color: #cfcfcf;
-  }
-  input {
-    width: 100%;
-    padding: 12px 12px;
-    border-radius: 10px;
-    color: var(--ink);
-    background: #0c0f13;
-    border: 1px solid #1e232a;
-    outline: none;
-  }
-  input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
-  }
-
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .check {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    color: #cfcfcf;
-    font-size: 14px;
-  }
-  .link {
-    color: var(--muted);
-    text-decoration: none;
-  }
-  .link:hover {
-    color: #d6d6d6;
-    text-decoration: underline;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border: 0;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .btn:hover {
-    filter: brightness(1.05);
-  }
-  .btn:active {
-    transform: translateY(1px);
-  }
-
-  @media (max-width: 480px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
-  }
+.auth .card {
+  background: #181a1f; /* малко по-светло от body */
+  border: 1px solid #2a2d33;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
+.auth label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.auth input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #202328; /* вместо черно */
+  color: #f5f5f5; /* бял текст */
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.auth input::placeholder {
+  color: #999;
+}
+
+.auth input:focus {
+  border-color: #b76e79; /* акцент */
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.4);
+  background: #1d2025;
+}
+
+.auth .btn {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: #b76e79;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.auth .btn:hover {
+  filter: brightness(1.1);
+}
+
+.auth .btn:active {
+  transform: scale(0.98);
+}
 .profile {
   padding: 40px 20px;
 }
