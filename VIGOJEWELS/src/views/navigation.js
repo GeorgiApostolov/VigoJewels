@@ -1,14 +1,16 @@
 import { html, render } from "lit-html";
-import { initNavigationAnimation } from "./navigationAnimation";
+import { initNav } from "./navigationAnimation";
 
 const divEl = document.getElementById("header-root");
 export function isLoggedIn() {
   return !!localStorage.getItem("authToken");
 }
 
+// navigation-logic.js
+
 export default async function navigationPage() {
   render(navigationTemplate(), divEl);
-  initNavigationAnimation(); // 🚀 след като е рендернато
+  initNav(); // 🚀 след като е рендернато
 }
 
 function navigationTemplate() {
