@@ -8,7 +8,7 @@ export default async function registerPage() {
 
 function registerTemplate() {
   return html`<!-- register.html -->
-    <section class="auth" id="view-register">
+    <section class="auth auth-register" id="view-register">
       <div class="card">
         <form
           class="form"
@@ -19,11 +19,11 @@ function registerTemplate() {
           <div class="grid">
             <div class="field">
               <label for="s-first">Име</label>
-              <input id="s-first" name="firstName" required />
+              <input id="s-first" name="firstName" type="text" required />
             </div>
             <div class="field">
               <label for="s-last">Фамилия</label>
-              <input id="s-last" name="lastName" required />
+              <input id="s-last" name="lastName" type="text" required />
             </div>
           </div>
 

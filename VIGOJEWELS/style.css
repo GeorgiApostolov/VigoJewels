@@ -481,39 +481,138 @@ button,
 .category-card:hover img {
   transform: scale(1.05);
 }
+/* Само за login страницата */
+#view-login .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* по 50% ако решиш да добавиш 2 полета */
+  gap: 12px;
+}
+
+#view-login input[type="text"],
+#view-login input[type="email"],
+#view-login input[type="password"] {
+  width: 100%; /* заема цялото място */
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #1e232a;
+  background: #0c0f13;
+  color: #fafafa;
+  outline: none;
+  font-size: 15px;
+}
+
+#view-login input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* чекбокс и текст на един ред (ако имаш в login) */
+#view-login .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+#view-login .check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent); /* по-модерен стил */
+}
+/* Само за register страницата */
+#view-register .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* по 50% */
+  gap: 12px;
+}
+
+#view-register input[type="text"],
+#view-register input[type="email"],
+#view-register input[type="password"] {
+  width: 100%; /* заема цялото място */
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #1e232a;
+  background: #0c0f13;
+  color: #fafafa;
+  outline: none;
+  font-size: 15px;
+}
+
+#view-register input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* чекбокс и текст на един ред */
+#view-register .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+#view-register .check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent); /* по-модерен стил */
+}
+
+.auth {
+  --auth-card-bg: #181a1f;
+  --auth-border: #2a2d33;
+  --auth-input-bg: #202328;
+  --auth-input-border: #333;
+  --auth-input-focus-bg: #1d2025;
+  --auth-input-placeholder: #999;
+  --auth-focus-border: #b76e79;
+  --auth-focus-shadow: rgba(183, 110, 121, 0.4);
+  --auth-btn-bg: #b76e79;
+  --auth-btn-color: #0f1013;
+  --auth-btn-hover-filter: brightness(1.1);
+  --auth-btn-active-scale: 0.98;
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - 160px);
+  padding: 64px 20px;
+}
+
 .auth .card {
-  background: #181a1f; /* малко по-светло от body */
-  border: 1px solid #2a2d33;
+  background: var(--auth-card-bg);
+  border: 1px solid var(--auth-border);
   border-radius: 14px;
-  padding: 24px;
+  padding: 28px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  width: min(100%, 420px);
 }
 
 .auth label {
   font-size: 14px;
   font-weight: 500;
-  color: #ddd;
+  color: color-mix(in srgb, var(--text) 80%, transparent);
 }
 
 .auth input {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #333;
-  background: #202328; /* вместо черно */
-  color: #f5f5f5; /* бял текст */
+  border: 1px solid var(--auth-input-border);
+  background: var(--auth-input-bg);
+  color: var(--text);
   outline: none;
-  transition: border 0.2s, box-shadow 0.2s;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .auth input::placeholder {
-  color: #999;
+  color: var(--auth-input-placeholder);
 }
 
 .auth input:focus {
-  border-color: #b76e79; /* акцент */
-  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.4);
-  background: #1d2025;
+  border-color: var(--auth-focus-border);
+  box-shadow: 0 0 0 3px var(--auth-focus-shadow);
+  background: var(--auth-input-focus-bg);
 }
 
 .auth .btn {
@@ -521,19 +620,32 @@ button,
   padding: 14px 16px;
   border-radius: 12px;
   border: none;
-  background: #b76e79;
-  color: #fff;
+  background: var(--auth-btn-bg);
+  color: var(--auth-btn-color);
   font-weight: 600;
   cursor: pointer;
   transition: filter 0.2s, transform 0.1s;
 }
 
 .auth .btn:hover {
-  filter: brightness(1.1);
+  filter: var(--auth-btn-hover-filter);
 }
 
 .auth .btn:active {
-  transform: scale(0.98);
+  transform: scale(var(--auth-btn-active-scale));
+}
+
+.auth-register {
+  --auth-card-bg: #1c2026;
+  --auth-border: #30353d;
+  --auth-input-bg: #22272f;
+  --auth-input-border: #404651;
+  --auth-input-focus-bg: #1d2129;
+  --auth-focus-border: #8f7fff;
+  --auth-focus-shadow: rgba(143, 127, 255, 0.45);
+  --auth-btn-bg: linear-gradient(135deg, #8c6cf0, #b76e79);
+  --auth-btn-color: #fff;
+  --auth-btn-hover-filter: brightness(1.12) saturate(1.05);
 }
 .profile {
   padding: 40px 20px;

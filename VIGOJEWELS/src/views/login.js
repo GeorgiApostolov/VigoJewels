@@ -8,42 +8,39 @@ export default function loginPage() {
 }
 
 function loginTemplate() {
-  return html`
-    <section class="auth" id="view-login">
-      <div class="card">
-        <form class="form" id="login-form" @submit=${loginUser}>
-          <div class="field">
-            <label for="l-email">Имейл</label>
-            <input
-              id="l-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required
-            />
-          </div>
+  return html`<section class="auth" id="view-login">
+    <div class="card">
+      <form class="form" id="login-form" @submit=${loginUser}>
+        <div class="field">
+          <label for="l-email">Имейл</label>
+          <input
+            id="l-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+        </div>
 
-          <div class="field">
-            <label for="l-pass">Парола</label>
-            <input
-              id="l-pass"
-              name="password"
-              type="password"
-              autocomplete="current-password"
-              required
-            />
-          </div>
+        <div class="field">
+          <label for="l-pass">Парола</label>
+          <input
+            id="l-pass"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
 
-          <button class="btn" type="submit">Влез</button>
+        <button class="btn" type="submit">Влез</button>
 
-          <p style="text-align:center;color:#cfcfcf;margin:6px 0 0">
-            Нямаш акаунт?
-            <a class="link" href="/register">Създай акаунт</a>
-          </p>
-        </form>
-      </div>
-    </section>
-  `;
+        <p class="auth-note">
+          Нямаш акаунт? <a class="link" href="/register">Създай акаунт</a>
+        </p>
+      </form>
+    </div>
+  </section>`;
 }
 
 async function login(email, password) {
