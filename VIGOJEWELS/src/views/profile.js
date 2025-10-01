@@ -46,7 +46,7 @@ export default function profilePage() {
 }
 function logout() {
   localStorage.removeItem("authToken");
-  window.location.href = "/login";
+  window.location.href = "/";
 }
 
 function profileTemplate(orders) {
