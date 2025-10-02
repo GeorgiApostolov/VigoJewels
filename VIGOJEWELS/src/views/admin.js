@@ -1,13 +1,16 @@
 import page from "../../node_modules/page/page.mjs";
+import { html, render } from "lit-html";
 
-export function isAdmin() {
-  const token = localStorage.getItem(`authToken`);
-  if (
-    token !==
-    `eyJhbGciOiJSUzI1NiIsImtpZCI6ImU4MWYwNTJhZWYwNDBhOTdjMzlkMjY1MzgxZGU2Y2I0MzRiYzM1ZjMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdmlnb2pld2VscyIsImF1ZCI6InZpZ29qZXdlbHMiLCJhdXRoX3RpbWUiOjE3NTk0MTgxMTEsInVzZXJfaWQiOiJKa3Nld2daaE9rZFluUFlyclZ1U2RCRWpIVHExIiwic3ViIjoiSmtzZXdnWmhPa2RZblBZcnJWdVNkQkVqSFRxMSIsImlhdCI6MTc1OTQxODExMSwiZXhwIjoxNzU5NDIxNzExLCJlbWFpbCI6ImR1bGxza3VsbGJnQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJkdWxsc2t1bGxiZ0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Zt7ZGh-3YX9L3Lnrf3qzc7ccnHXqC6sC5Bw8FncJdBlQuhI4HQPtrp9kuQLbc_Z6k-0tGKnZlwFPovzeU9ARBVAlov40d1PWomw1tAwwktlaQ_MgEJ1i1knABuXftAlQ-zQ5dlCBseS2z0k4NQ2CRSHV6qeI3Th57UGFXwr-ckKcJy-QbiJfsScws-zx4ofuDdZVjsPwoeicOHhs8JyRd5PC7xH4HpT05fpUPW_hnOQ0zdBq0XmS7YlpcvV5_Wj0a1iV7TdGB0gxb4ROKUcbiStBCP_Kk4Fqpe8xkLP6cL-tOPxhIop3oQ8NMD4FoZxFAM9HlfiNt0dod1XWmhE-8Q`
-  ) {
+const mainEl = document.querySelector("main");
+
+export async function isAdmin() {
+  const isAdminStorage = localStorage.getItem(`isAdmin`);
+  if (!isAdminStorage) {
     page.redirect(`/`);
   } else {
-    console.log(`yes`);
+    render(adminTemplate(), mainEl);
   }
+}
+function adminTemplate() {
+  return html`<h1>ADMIN</h1>`;
 }

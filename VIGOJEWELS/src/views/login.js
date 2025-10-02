@@ -70,6 +70,9 @@ async function loginUser(e) {
 
     // можеш да пазиш токена в localStorage
     localStorage.setItem("authToken", user.idToken);
+    if (email === `dullskullbg@gmail.com`) {
+      localStorage.setItem(`isAdmin`, 1);
+    }
 
     alert("Успешен вход!");
     window.location.href = "/";

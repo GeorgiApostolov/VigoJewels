@@ -16,12 +16,12 @@ navigationPage();
 
 page("/", homePage);
 page(`/handmade`, handmadePage);
+page("/admin", isAdmin);
 page("/collection", collectionPage);
 page("/contact", contactPage);
 page("/about", aboutPage);
 page("/login", loginPage);
 page("/register", registerPage);
 page("/profile", profilePage);
-page("/admin", isAdmin);
 
 page.start();

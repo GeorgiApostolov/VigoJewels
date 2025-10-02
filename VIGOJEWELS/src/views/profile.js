@@ -46,6 +46,7 @@ export default function profilePage() {
 }
 function logout() {
   localStorage.removeItem("authToken");
+  localStorage.removeItem("isAdmin");
   window.location.href = "/";
 }
 

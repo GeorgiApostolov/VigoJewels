@@ -1,21 +1,34 @@
+// src/views/navigation.js
 import { html, render } from "lit-html";
-import { initNav } from "./navigationAnimation";
+import { initNav } from "./navigationAnimation.js";
 
-const divEl = document.getElementById("header-root");
-export function isLoggedIn() {
-  return !!localStorage.getItem("authToken");
+const mount = document.getElementById("header-root");
+
+// === helpers ===
+export const isLoggedIn = () => !!localStorage.getItem("authToken");
+export const isAdmin = () => localStorage.getItem("isAdmin") === "1";
+
+// Позовай това след логин/лог-аут за да се прерисува header-а
+export function refreshNav() {
+  render(template(), mount);
+  // initNav само веднъж за да не се закачат двойно listener-и
+  if (!document.documentElement.dataset.navInit) {
+    initNav();
+    document.documentElement.dataset.navInit = "1";
+  }
 }
 
-// navigation-logic.js
-
-export default async function navigationPage() {
-  render(navigationTemplate(), divEl);
-  initNav(); // 🚀 след като е рендернато
+// Стартов рендер
+export default function navigationPage() {
+  refreshNav();
 }
 
-function navigationTemplate() {
+// === view ===
+const template = () => {
   const profileHref = isLoggedIn() ? "/profile" : "/login";
-  return html`<!-- HEADER -->
+
+  return html`
+    <!-- HEADER -->
     <header class="m-header" id="mHeader">
       <div class="bar">
         <div class="left">
@@ -58,6 +71,7 @@ function navigationTemplate() {
           <a href="/handmade">HANDMADE</a>
           <a href="/about">ЗА НАС</a>
           <a href="/contact">КОНТАКТИ</a>
+          ${isAdmin() ? html`<a href="/admin">АДМИН</a>` : ""}
         </nav>
       </div>
     </header>
@@ -86,6 +100,8 @@ function navigationTemplate() {
         <a href="/handmade">HANDMADE</a>
         <a href="/about">ЗА НАС</a>
         <a href="/contact">КОНТАКТИ</a>
+        ${isAdmin() ? html`<a href="/admin">АДМИН</a>` : ""}
       </nav>
-    </aside>`;
-}
+    </aside>
+  `;
+};
