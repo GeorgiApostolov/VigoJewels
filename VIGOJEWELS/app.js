@@ -10,6 +10,7 @@ import loginPage from "./src/views/login";
 import registerPage from "./src/views/register";
 import navigationPage from "./src/views/navigation";
 import profilePage from "./src/views/profile";
+import { isAdmin } from "./src/views/admin.js";
 
 navigationPage();
 
@@ -21,5 +22,6 @@ page("/about", aboutPage);
 page("/login", loginPage);
 page("/register", registerPage);
 page("/profile", profilePage);
+page("/admin", isAdmin);
 
 page.start();
