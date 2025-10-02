@@ -7,13 +7,14 @@ export function initNav() {
   const drawer = document.getElementById("drawer");
 
   const openMenu = () => {
-    htmlEl.classList.add("menu-open", "noscroll");
-    // фокус за достъпност
+    backdrop?.removeAttribute("hidden"); // ← показваме backdrop-а
+    document.documentElement.classList.add("menu-open", "noscroll");
     setTimeout(() => closeBtn?.focus(), 10);
   };
 
   const closeMenu = () => {
-    htmlEl.classList.remove("menu-open", "noscroll");
+    document.documentElement.classList.remove("menu-open", "noscroll");
+    backdrop?.setAttribute("hidden", ""); // ← скриваме backdrop-а
     openBtn?.focus();
   };
 

@@ -737,6 +737,16 @@ html.menu-open .backdrop {
   opacity: 1;
   pointer-events: auto;
 }
+
+#header-root .m-header {
+  z-index: 1000;
+} /* хедър */
+.backdrop {
+  z-index: 1001;
+} /* фон */
+.drawer {
+  z-index: 1002;
+} /* меню */
 .contact__icon {
   width: 36px;
   height: 36px;

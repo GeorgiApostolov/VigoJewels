@@ -77,7 +77,7 @@ const template = () => {
     </header>
 
     <!-- Drawer -->
-    <div class="backdrop" id="backdrop" hidden></div>
+    <div class="backdrop" id="backdrop"></div>
     <aside
       class="drawer"
       id="drawer"
