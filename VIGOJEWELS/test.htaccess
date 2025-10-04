@@ -1,0 +1,11 @@
+# SPA history fallback за Vite / page.js
+RewriteEngine On
+RewriteBase /
+
+# Ако съществува файл или директория — сервирай го
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Иначе дай index.html, за да поеме SPA-то
+RewriteRule ^ index.html [L]
